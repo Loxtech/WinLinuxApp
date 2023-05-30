@@ -6,7 +6,16 @@ namespace WinLinuxApp
     {
         static void Main(string[] args)
         {
-            MakeFolder.CreateFile();
+            MakeFolder fh = new("Loke.txt");
+
+            try
+            {
+                fh.CreateFile();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
     }
 }

@@ -8,20 +8,11 @@ namespace WinLinuxApp.Classes
 {
     public class MakeFolder
     {
-        public static bool CreateFile()
-        {
-            bool success = true;
-
-            try
-            {
-                string myUserFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-                File.Create(Path.Combine(myUserFolder, "Loke.txt"));
-            }
-            catch (Exception)
-            {
-                success = false;
-            }
-            return success;
+        public string FileName{get; set;}
+        public string MyUserDir{
+            get => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), FileName);
         }
+        public MakeFolder(string fileName) => FileName = fileName;
+        public void CreateFile() => File.Create(MyUserDir);
     }
 }
