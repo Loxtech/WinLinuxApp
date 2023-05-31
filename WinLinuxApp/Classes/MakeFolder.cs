@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WinLinuxApp.Classes
 {
@@ -13,6 +14,7 @@ namespace WinLinuxApp.Classes
             get => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), FileName);
         }
         public MakeFolder(string fileName) => FileName = fileName;
-        public void CreateFile() => File.Create(MyUserDir);
+        public void CreateFile(string text) => File.WriteAllText(MyUserDir, text);
+        
     }
 }

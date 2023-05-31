@@ -6,15 +6,44 @@ namespace WinLinuxApp
     {
         static void Main(string[] args)
         {
-            MakeFolder fh = new("Loke.txt");
+            Console.WriteLine("Please choose 1 to make a new file or 2 to check path");
 
-            try
+            string? choice = Console.ReadLine();
+
+            if (choice == "1")
             {
-                fh.CreateFile();
+                Console.Write("Input file name: ");
+                string nameOfFile = Console.ReadLine();
+                Console.Write("Input text to file:");
+                string textToFile = Console.ReadLine();
+                MakeFolder fh = new(nameOfFile + ".txt");
+                try
+                {
+                    fh.CreateFile(textToFile);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                
             }
-            catch (Exception e)
+            else if (choice == "2")
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine($"Your user folder is: {Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Incorrect input");
+            }
+
+            int x = 1;
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine(x);
+                System.Threading.Thread.Sleep(1000);
+                x++;
             }
         }
     }

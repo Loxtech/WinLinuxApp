@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Windows OS": {
+      "commandName": "Project"
+    },
+    "Linux OS": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
